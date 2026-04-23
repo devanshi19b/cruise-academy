@@ -1,0 +1,52 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#081A3B"/>
+      <stop offset="0.45" stop-color="#0B2C5F"/>
+      <stop offset="1" stop-color="#0A3D7A"/>
+    </linearGradient>
+    <linearGradient id="sea" x1="0" y1="520" x2="0" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0A4C8D"/>
+      <stop offset="1" stop-color="#062957"/>
+    </linearGradient>
+    <linearGradient id="shipBody" x1="540" y1="485" x2="1255" y2="708" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F3F8FF"/>
+      <stop offset="1" stop-color="#BFD1E8"/>
+    </linearGradient>
+    <linearGradient id="shipShadow" x1="510" y1="650" x2="1310" y2="760" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#13395D"/>
+      <stop offset="1" stop-color="#082241"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <circle cx="1340" cy="145" r="95" fill="#F6D471" fill-opacity="0.9"/>
+  <rect y="520" width="1600" height="380" fill="url(#sea)"/>
+
+  <path d="M0 610C140 580 245 665 390 640C535 615 675 560 855 598C1035 636 1225 695 1600 640V900H0V610Z" fill="#0A4380" fill-opacity="0.65"/>
+  <path d="M0 665C160 635 310 705 460 685C610 665 760 618 930 650C1100 682 1300 748 1600 700V900H0V665Z" fill="#0B3569" fill-opacity="0.72"/>
+
+  <g opacity="0.95">
+    <path d="M540 635H1265L1175 720H465L540 635Z" fill="url(#shipBody)"/>
+    <path d="M575 600H1185V635H540L575 600Z" fill="#E8F0FA"/>
+    <rect x="615" y="540" width="500" height="60" rx="12" fill="#EAF2FC"/>
+    <rect x="650" y="500" width="370" height="48" rx="10" fill="#EDF4FD"/>
+    <rect x="700" y="462" width="250" height="38" rx="8" fill="#F4F8FF"/>
+    <rect x="976" y="538" width="110" height="18" rx="6" fill="#173B6E"/>
+    <rect x="618" y="555" width="26" height="18" rx="4" fill="#1C4A83"/>
+    <rect x="654" y="555" width="26" height="18" rx="4" fill="#1C4A83"/>
+    <rect x="690" y="555" width="26" height="18" rx="4" fill="#1C4A83"/>
+    <rect x="726" y="555" width="26" height="18" rx="4" fill="#1C4A83"/>
+    <rect x="762" y="555" width="26" height="18" rx="4" fill="#1C4A83"/>
+    <rect x="798" y="555" width="26" height="18" rx="4" fill="#1C4A83"/>
+    <rect x="834" y="555" width="26" height="18" rx="4" fill="#1C4A83"/>
+    <rect x="870" y="555" width="26" height="18" rx="4" fill="#1C4A83"/>
+    <rect x="906" y="555" width="26" height="18" rx="4" fill="#1C4A83"/>
+    <rect x="942" y="555" width="26" height="18" rx="4" fill="#1C4A83"/>
+    <rect x="978" y="555" width="26" height="18" rx="4" fill="#1C4A83"/>
+    <path d="M465 720H1175L1310 665H510L465 720Z" fill="url(#shipShadow)"/>
+  </g>
+
+  <path d="M0 760C190 730 320 780 510 760C700 740 855 705 1090 735C1325 765 1460 795 1600 770" stroke="#9BC7FF" stroke-opacity="0.45" stroke-width="8" stroke-linecap="round"/>
+  <path d="M20 805C210 775 345 830 535 810C725 790 900 755 1135 785C1370 815 1475 835 1580 822" stroke="#B4D4FF" stroke-opacity="0.4" stroke-width="7" stroke-linecap="round"/>
+</svg>
