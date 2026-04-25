@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { contactDetails } from '@/lib/contact';
@@ -10,7 +10,18 @@ import AdmissionFormModal from './AdmissionFormModal';
 export default function Hero() {
   const ref = useRef(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isLogoZoomed, setIsLogoZoomed] = useState(false);
+  const { scrollY } = useScroll();
+  const [hidden, setHidden] = useState(false);
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious() || 0;
+    if (latest > previous && latest > 150) {
+      setHidden(true);
+    } else {
+      setHidden(false);
+    }
+  });
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"]
@@ -24,7 +35,7 @@ export default function Hero() {
       <motion.div style={{ y, opacity }} className="absolute inset-0 z-0 h-[120vh]">
         <Image
           src="/real-ship.png"
-          alt="3D cruise ship at sea background"
+          alt="Majestic cruise ship at sunset"
           fill
           priority
           className="object-cover object-center"
@@ -32,45 +43,57 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0f1c]/70 via-transparent to-[#0a0f1c]/20"></div>
       </motion.div>
 
-      <header className="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-4 bg-[#0a0f1c]/30 backdrop-blur-xl border-b border-white/10 shadow-lg transition-all duration-300">
+      <motion.header 
+        variants={{
+          visible: { y: 0 },
+          hidden: { y: "-100%" },
+        }}
+        animate={hidden ? "hidden" : "visible"}
+        transition={{ duration: 0.35, ease: "easeInOut" }}
+        className="fixed top-2 left-4 md:left-6 z-50 w-[calc(100%-2rem)] md:w-[calc(100%-3rem)] transition-all duration-300 py-3 px-4 md:px-8"
+      >
         <nav className="w-full">
-          <div className="grid grid-cols-3 items-center">
-            <div className="flex items-center gap-5 text-sm md:text-base font-medium text-white drop-shadow-md">
-              <Link href="/" className="hover:text-blue-200 transition-colors duration-300">
-                Home
-              </Link>
-              <a href="#about" className="hover:text-blue-200 transition-colors duration-300">
-                About Us
-              </a>
+          <div className="flex items-center justify-between">
+            {/* Organization Name & Logo (Left) */}
+            <div className="flex-shrink-0 flex items-center gap-3">
+              <Image 
+                src="/nav-logo.png" 
+                alt="SGI Logo" 
+                width={40} 
+                height={40} 
+                className="object-contain"
+              />
+              <span className="text-lg md:text-xl font-bold tracking-tight text-white drop-shadow-md">
+                {contactDetails.organizationName}
+              </span>
             </div>
 
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center gap-2">
-                <Image
-                  src={contactDetails.logoPath}
-                  alt="Shrivastava Group logo"
-                  width={34}
-                  height={34}
-                  className="h-8 w-8 rounded-sm cursor-pointer hover:scale-110 transition-transform duration-300"
-                  onClick={() => setIsLogoZoomed(true)}
-                />
-                <span className="text-sm md:text-xl font-sans font-semibold tracking-[0.04em] text-white/95 drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)]">
-                  {contactDetails.organizationName}
-                </span>
+            {/* Navigation Links (Right) */}
+            <div className="flex items-center gap-6 md:gap-10">
+              <div className="hidden md:flex items-center gap-6 text-sm font-semibold text-white/80">
+                <Link href="/" className="hover:text-blue-400 transition-colors duration-300">
+                  Home
+                </Link>
+                <a href="#about" className="hover:text-blue-400 transition-colors duration-300">
+                  About Us
+                </a>
+                <Link href="/contact" className="hover:text-blue-400 transition-colors duration-300">
+                  Contact Us
+                </Link>
               </div>
-            </div>
 
-            <div className="flex justify-end pr-2 md:pr-4">
-              <button 
-                onClick={() => setIsModalOpen(true)}
-                className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 sm:px-6 sm:py-2.5 rounded-lg font-semibold shadow-[0_0_15px_rgba(37,99,235,0.4)] hover:shadow-[0_0_20px_rgba(37,99,235,0.6)] transition-all duration-300 transform hover:-translate-y-0.5 text-sm md:text-base border border-blue-400"
-              >
-                Apply Now
-              </button>
+              <div className="flex-shrink-0">
+                <button 
+                  onClick={() => setIsModalOpen(true)}
+                  className="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2 rounded-xl font-bold shadow-lg shadow-blue-600/20 transition-all duration-300 transform hover:-translate-y-0.5 text-sm md:text-base border border-blue-400/50"
+                >
+                  Apply Now
+                </button>
+              </div>
             </div>
           </div>
         </nav>
-      </header>
+      </motion.header>
       
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl pt-20">
@@ -112,36 +135,7 @@ export default function Hero() {
         onClose={() => setIsModalOpen(false)} 
       />
 
-      {/* Logo Zoom Modal */}
-      {isLogoZoomed && (
-        <div 
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
-          onClick={() => setIsLogoZoomed(false)}
-        >
-          <motion.div 
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            className="relative max-w-3xl max-h-[90vh] bg-white rounded-2xl p-4 md:p-8 shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button 
-              onClick={() => setIsLogoZoomed(false)}
-              className="absolute top-2 right-2 md:top-4 md:right-4 text-gray-500 hover:text-gray-900 bg-gray-100 hover:bg-gray-200 rounded-full p-2 transition-colors z-10"
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-            </button>
-            <div className="flex items-center justify-center h-full overflow-hidden">
-              <Image
-                src={contactDetails.logoPath}
-                alt="Shrivastava Group logo zoomed"
-                width={800}
-                height={800}
-                className="max-w-full max-h-[75vh] object-contain rounded-lg"
-              />
-            </div>
-          </motion.div>
-        </div>
-      )}
+
     </section>
   );
 }

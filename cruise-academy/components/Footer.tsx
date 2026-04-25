@@ -16,13 +16,10 @@ const footerLinks = {
   ],
   company: [
     { name: "About Us", href: "/about" },
-    { name: "Contact", href: "/contact" },
     { name: "Blog", href: "/blog" },
     { name: "Careers", href: "/careers" }
   ],
   support: [
-    { name: "Help Center", href: "/help", isModal: false },
-    { name: "Privacy Policy", href: "/privacy", isModal: false },
     { name: "Terms and Conditions", href: "#", isModal: true },
     { name: "FAQ", href: "/faq", isModal: false }
   ]
@@ -45,9 +42,23 @@ export default function Footer() {
             viewport={{ once: true }}
           >
             <h3 className="text-cyan-400 text-sm font-bold tracking-wide mb-4">Shrivastava Group</h3>
-            <p className="text-[#64748b] text-xs leading-relaxed max-w-[280px] mb-8">
-              Empowering the next generation of global leaders through innovative education and maritime excellence since 2014.
+            <p className="text-[#64748b] text-xs leading-relaxed max-w-[280px] mb-6">
+              A premier coaching hub in Satara specializing in Class X, XII, NEET, and IIT-JEE preparation. We focus on individual attention through small batch sizes to ensure every student excels.
             </p>
+            <div className="space-y-2 mb-8">
+              <div className="flex items-center gap-2 text-[10px] text-cyan-500/80 font-bold uppercase tracking-widest">
+                <span className="w-1.5 h-1.5 bg-cyan-500 rounded-full"></span>
+                NEET & IIT-JEE Coaching
+              </div>
+              <div className="flex items-center gap-2 text-[10px] text-cyan-500/80 font-bold uppercase tracking-widest">
+                <span className="w-1.5 h-1.5 bg-cyan-500 rounded-full"></span>
+                Personalized Attention
+              </div>
+              <div className="flex items-center gap-2 text-[10px] text-cyan-500/80 font-bold uppercase tracking-widest">
+                <span className="w-1.5 h-1.5 bg-cyan-500 rounded-full"></span>
+                Expert Career Guidance
+              </div>
+            </div>
             <div className="flex space-x-5 text-[#64748b]">
               <a href="#" className="hover:text-cyan-400 transition-colors">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>

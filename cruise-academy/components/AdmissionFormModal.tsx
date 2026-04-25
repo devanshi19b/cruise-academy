@@ -187,6 +187,31 @@ export default function AdmissionFormModal({ isOpen, onClose }: AdmissionFormMod
               className="relative w-full max-w-5xl bg-white border border-gray-200 rounded-2xl shadow-2xl flex flex-col z-10 overflow-hidden"
             >
               
+              {/* Modal Hero Banner */}
+              <div className="relative h-48 md:h-64 w-full overflow-hidden">
+                <img 
+                  src="/real-ship.png" 
+                  alt="Academy Banner" 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
+                   <div className="flex items-center gap-4">
+                      <div className="w-20 h-20 bg-white p-2 rounded-xl shadow-lg border border-white/20">
+                        <img 
+                          src="/institute-logo.png" 
+                          alt="Logo" 
+                          className="w-full h-full object-contain"
+                        />
+                      </div>
+                      <div className="text-white drop-shadow-md">
+                        <h2 className="text-xl md:text-2xl font-bold uppercase tracking-wider">Admission Open</h2>
+                        <p className="text-blue-100 text-sm font-medium">Session 2026-27</p>
+                      </div>
+                   </div>
+                </div>
+              </div>
+              
               {/* Top Action Bar (Close button) */}
               <div className="absolute top-4 right-4 z-20">
                 <button
@@ -211,35 +236,26 @@ export default function AdmissionFormModal({ isOpen, onClose }: AdmissionFormMod
               ) : (
                 <div className="p-6 sm:p-10">
                   
-                  {/* HEADER SECTION */}
+                  {/* HEADER SECTION - Simplified since logo moved to banner */}
                   <div className="flex flex-col md:flex-row items-center justify-between border-b pb-8 mb-8 gap-6 relative">
                     
-                    {/* Logo Area */}
-                    <div className="flex-shrink-0 flex items-center justify-center w-32 h-32 bg-white border border-gray-100 rounded-xl overflow-hidden shadow-sm">
-                       <img 
-                         src="/shrivastava-logo.png" 
-                         alt="Shrivastava Group Logo" 
-                         className="w-full h-full object-contain p-2"
-                       />
-                    </div>
-
                     {/* Institute Details */}
-                    <div className="flex-1 text-center">
+                    <div className="flex-1 text-center md:text-left">
                       <h1 className="text-2xl md:text-3xl font-bold text-blue-900 mb-2 uppercase tracking-wide">
                         Shrivastava Group of Institutes
                       </h1>
-                      <div className="text-sm text-gray-600 space-y-1 inline-block text-left mx-auto">
-                        <p className="flex items-center gap-2 justify-center">
+                      <div className="text-sm text-gray-600 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-1">
+                        <p className="flex items-center gap-2">
                           <span className="font-semibold text-blue-800">Phone:</span> 8888060439 / 8484820157
                         </p>
-                        <p className="flex items-center gap-2 justify-center text-center max-w-md mx-auto">
-                          Bashweshwar Bhavan, 466/A, Bhurke Colony, Front of Bhurke Banglow, Sadar Bazar, Satara (Pune) - 415001
+                        <p className="flex items-center gap-2">
+                          <span className="font-semibold text-blue-800">Email:</span> shrivastavagroupofinstitutes@gmail.com
                         </p>
-                        <p className="flex items-center gap-4 justify-center mt-2">
-                          <span><span className="font-semibold text-blue-800">Email:</span> shrivastavagroupofinstitutes@gmail.com</span>
+                        <p className="flex items-center gap-2 md:col-span-2">
+                          <span className="font-semibold text-blue-800">Address:</span> Bashweshwar Bhavan, 466/A, Bhurke Colony, Sadar Bazar, Satara - 415001
                         </p>
-                        <p className="flex items-center gap-2 justify-center">
-                          <span><span className="font-semibold text-blue-800">Website:</span> www.shrivastavagroupofinstitutes.in</span>
+                        <p className="flex items-center gap-2 md:col-span-2">
+                          <span className="font-semibold text-blue-800">Website:</span> www.shrivastavagroupofinstitutes.in
                         </p>
                       </div>
                     </div>
