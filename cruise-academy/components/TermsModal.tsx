@@ -112,50 +112,7 @@ export default function TermsModal({ isOpen, onClose }: TermsModalProps) {
                   </div>
                 </section>
 
-                <hr className="border-gray-100" />
 
-                {/* SECTION 5 */}
-                <section className="pb-8">
-                  <h3 className="text-lg font-bold text-gray-900 mb-6 uppercase tracking-wider">Section 5: Optional Additional Fields</h3>
-                  
-                  {/* Fees Installments */}
-                  <div className="mb-10">
-                    <h4 className="font-semibold text-gray-800 mb-4">Fees Installment Schedule</h4>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                      <div className="border border-gray-200 rounded-lg p-4 bg-gray-50">
-                        <span className="text-xs font-bold text-gray-500 uppercase tracking-widest block mb-1">Installment I</span>
-                        <div className="h-8 border-b-2 border-dotted border-gray-300"></div>
-                      </div>
-                      <div className="border border-gray-200 rounded-lg p-4 bg-gray-50">
-                        <span className="text-xs font-bold text-gray-500 uppercase tracking-widest block mb-1">Installment II</span>
-                        <div className="h-8 border-b-2 border-dotted border-gray-300"></div>
-                      </div>
-                      <div className="border border-gray-200 rounded-lg p-4 bg-gray-50">
-                        <span className="text-xs font-bold text-gray-500 uppercase tracking-widest block mb-1">Installment III</span>
-                        <div className="h-8 border-b-2 border-dotted border-gray-300"></div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Signatures */}
-                  <div>
-                    <h4 className="font-semibold text-gray-800 mb-6">Signatures</h4>
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-                      <div className="flex flex-col flex-1">
-                        <div className="h-20 border-b-2 border-gray-300 mb-2"></div>
-                        <span className="text-sm text-gray-600 text-center font-medium">Parent Signature</span>
-                      </div>
-                      <div className="flex flex-col flex-1">
-                        <div className="h-20 border-b-2 border-gray-300 mb-2"></div>
-                        <span className="text-sm text-gray-600 text-center font-medium">Student Signature</span>
-                      </div>
-                      <div className="flex flex-col flex-1">
-                        <div className="h-20 border-b-2 border-gray-300 mb-2"></div>
-                        <span className="text-sm text-gray-600 text-center font-medium">Authorized Signature</span>
-                      </div>
-                    </div>
-                  </div>
-                </section>
 
               </div>
 

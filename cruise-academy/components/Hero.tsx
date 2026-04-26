@@ -121,9 +121,6 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <button className="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-lg font-semibold transition-colors duration-300 shadow-lg">
-            Get Started
-          </button>
           <button className="border border-white/50 bg-white/10 backdrop-blur-md hover:bg-white hover:text-blue-900 px-8 py-3 rounded-lg font-semibold transition-all duration-300">
             Explore Programs
           </button>

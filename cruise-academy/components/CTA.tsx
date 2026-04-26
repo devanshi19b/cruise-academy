@@ -22,9 +22,6 @@ export default function CTA() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
-            <button className="bg-white text-[#0a0f1c] hover:bg-transparent hover:text-white hover:border hover:border-white px-8 py-3 rounded-full font-bold transition-all duration-300 shadow-xl">
-              Get Started Now
-            </button>
             <button className="border border-white/20 bg-white/5 backdrop-blur-md hover:bg-white/10 hover:border-white/50 px-8 py-3 rounded-full font-bold transition-all duration-300">
               Schedule Consultation
             </button>
