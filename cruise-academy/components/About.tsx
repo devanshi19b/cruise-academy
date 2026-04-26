@@ -45,7 +45,7 @@ export default function About() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">Our Story</h2>
-          <p className="text-xl text-slate-400 max-w-2xl mx-auto">The journey of building a legacy of excellence in education and career guidance.</p>
+          <p className="text-xl text-slate-300 max-w-2xl mx-auto">The journey of building a legacy of excellence in education and career guidance.</p>
         </motion.div>
         
         <div className="relative max-w-5xl mx-auto">
@@ -79,7 +79,7 @@ export default function About() {
                         className="bg-[#121c2d] p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow border border-white/5 max-w-md w-full relative z-10"
                       >
                         <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
-                        <p className="text-slate-400 leading-relaxed text-sm md:text-base">{item.description}</p>
+                        <p className="text-slate-300 leading-relaxed text-sm md:text-base">{item.description}</p>
                       </motion.div>
                     )}
                   </div>
@@ -106,7 +106,7 @@ export default function About() {
                         className="bg-[#121c2d] p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow border border-white/5 max-w-md w-full relative z-10"
                       >
                         <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
-                        <p className="text-slate-400 leading-relaxed text-sm md:text-base">{item.description}</p>
+                        <p className="text-slate-300 leading-relaxed text-sm md:text-base">{item.description}</p>
                       </motion.div>
                     ) : (
                       <motion.div 

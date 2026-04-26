@@ -1,5 +1,5 @@
 export const contactDetails = {
-  organizationName: "Shrivastava Group of Institute",
+  organizationName: "Shrivastava Group of Institutes",
   founderName: "Mr. Rohit Shrivastava",
   email: "shrivastavagroupofinstitutes@gmail.com",
   phoneDisplay: "888 806 0439",

@@ -17,7 +17,7 @@ export default function CTA() {
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[30rem] h-[30rem] bg-cyan-500/10 rounded-full blur-[80px] pointer-events-none"></div>
 
           <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight relative z-10 drop-shadow-sm">Start Your Journey Today</h2>
-          <p className="text-xl text-slate-400 mb-10 relative z-10 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-300 mb-10 relative z-10 max-w-2xl mx-auto">
             Take the first step towards your dream career. Contact us for personalized guidance and support.
           </p>
           

@@ -101,7 +101,7 @@ export default function Programs() {
                 {program.icon}
               </div>
               <h3 className="text-2xl font-bold text-white mb-3 tracking-tight">{program.title}</h3>
-              <p className="text-[#94a3b8] leading-relaxed text-sm">
+              <p className="text-slate-300 leading-relaxed text-sm">
                 {program.description}
               </p>
             </motion.div>

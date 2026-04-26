@@ -31,16 +31,17 @@ export default function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.2]);
 
   return (
-    <section ref={ref} className="relative h-[120vh] flex items-center justify-center text-white overflow-hidden bg-black pb-[20vh]">
-      <motion.div style={{ y, opacity }} className="absolute inset-0 z-0 h-[120vh]">
+    <section ref={ref} className="relative h-screen flex items-center justify-center text-white overflow-hidden bg-black">
+      <motion.div style={{ y, opacity }} className="absolute inset-0 z-0 h-full">
         <Image
-          src="/real-ship.png"
-          alt="Majestic cruise ship at sunset"
+          src="/hero-bg.png"
+          alt="Majestic cruise ship on the ocean"
           fill
           priority
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0f1c]/70 via-transparent to-[#0a0f1c]/20"></div>
+        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60"></div>
       </motion.div>
 
       <motion.header 
@@ -50,20 +51,12 @@ export default function Hero() {
         }}
         animate={hidden ? "hidden" : "visible"}
         transition={{ duration: 0.35, ease: "easeInOut" }}
-        className="fixed top-2 left-4 md:left-6 z-50 w-[calc(100%-2rem)] md:w-[calc(100%-3rem)] transition-all duration-300 py-3 px-4 md:px-8"
+        className="fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 py-4 px-4 md:px-8 bg-[#0a0f1c]"
       >
         <nav className="w-full">
           <div className="flex items-center justify-between">
-            {/* Organization Name & Logo (Left) */}
-            <div className="flex-shrink-0 flex items-center gap-3">
-              <Image 
-                src="/nav-logo.png" 
-                alt="SGI Logo" 
-                width={40} 
-                height={40} 
-                className="object-contain"
-              />
-              <span className="text-lg md:text-xl font-bold tracking-tight text-white drop-shadow-md">
+            <div className="flex-shrink-0 flex items-center">
+              <span className="text-lg md:text-xl font-bold tracking-tight text-white">
                 {contactDetails.organizationName}
               </span>
             </div>
@@ -85,7 +78,7 @@ export default function Hero() {
               <div className="flex-shrink-0">
                 <button 
                   onClick={() => setIsModalOpen(true)}
-                  className="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2 rounded-xl font-bold shadow-lg shadow-blue-600/20 transition-all duration-300 transform hover:-translate-y-0.5 text-sm md:text-base border border-blue-400/50"
+                  className="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2 rounded-xl font-bold transition-all duration-300 transform hover:-translate-y-0.5 text-sm md:text-base border border-blue-400/50"
                 >
                   Apply Now
                 </button>
@@ -98,7 +91,7 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl pt-20">
         <motion.h1 
-          className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent drop-shadow-sm"
+          className="text-5xl md:text-7xl font-bold mb-6 text-white drop-shadow-[0_4px_15px_rgba(0,0,0,0.8)]"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -107,7 +100,7 @@ export default function Hero() {
         </motion.h1>
         
         <motion.p 
-          className="text-xl md:text-2xl mb-8 text-blue-50 drop-shadow-md font-medium"
+          className="text-xl md:text-2xl mb-8 text-white font-medium drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}

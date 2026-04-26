@@ -187,30 +187,8 @@ export default function AdmissionFormModal({ isOpen, onClose }: AdmissionFormMod
               className="relative w-full max-w-5xl bg-white border border-gray-200 rounded-2xl shadow-2xl flex flex-col z-10 overflow-hidden"
             >
               
-              {/* Modal Hero Banner */}
-              <div className="relative h-48 md:h-64 w-full overflow-hidden">
-                <img 
-                  src="/real-ship.png" 
-                  alt="Academy Banner" 
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
-                   <div className="flex items-center gap-4">
-                      <div className="w-20 h-20 bg-white p-2 rounded-xl shadow-lg border border-white/20">
-                        <img 
-                          src="/institute-logo.png" 
-                          alt="Logo" 
-                          className="w-full h-full object-contain"
-                        />
-                      </div>
-                      <div className="text-white drop-shadow-md">
-                        <h2 className="text-xl md:text-2xl font-bold uppercase tracking-wider">Admission Open</h2>
-                        <p className="text-blue-100 text-sm font-medium">Session 2026-27</p>
-                      </div>
-                   </div>
-                </div>
-              </div>
+              {/* Header space */}
+              <div className="h-4 bg-blue-900 w-full"></div>
               
               {/* Top Action Bar (Close button) */}
               <div className="absolute top-4 right-4 z-20">
@@ -260,20 +238,7 @@ export default function AdmissionFormModal({ isOpen, onClose }: AdmissionFormMod
                       </div>
                     </div>
 
-                    {/* Photo Upload Area */}
-                    <div className="flex-shrink-0">
-                      <label className="flex flex-col items-center justify-center w-32 h-40 border-2 border-gray-300 border-dashed rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors cursor-pointer group relaitve overflow-hidden">
-                        {formData.photo ? (
-                          <img src={URL.createObjectURL(formData.photo)} alt="Student Preview" className="w-full h-full object-cover" />
-                        ) : (
-                          <div className="flex flex-col items-center p-3 text-center">
-                            <svg className="w-8 h-8 text-gray-400 group-hover:text-blue-500 mb-2 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                            <span className="text-xs font-semibold text-gray-500 group-hover:text-blue-600 transition-colors">Upload Photo</span>
-                          </div>
-                        )}
-                        <input type="file" name="photo" accept="image/*" onChange={handleChange} className="hidden" />
-                      </label>
-                    </div>
+                    {/* Photo area removed */}
 
                   </div>
 
