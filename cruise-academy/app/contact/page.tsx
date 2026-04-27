@@ -15,7 +15,7 @@ export default function ContactPage() {
       </div>
 
       <div className="relative z-10 w-full max-w-4xl">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-12"
@@ -36,7 +36,7 @@ export default function ContactPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Contact Info Cards */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
@@ -51,8 +51,7 @@ export default function ContactPage() {
               <h3 className="text-xl font-bold mb-2">Phone</h3>
               <p className="text-slate-400 mb-4">Monday to Saturday, 9am to 6pm</p>
               <div className="space-y-2">
-                <a href="tel:+918888060439" className="block text-2xl font-semibold hover:text-blue-400 transition-colors">888 806 0439</a>
-                <a href="tel:+918484820157" className="block text-2xl font-semibold hover:text-blue-400 transition-colors">848 482 0157</a>
+                <a href="tel:+919096976699" className="block text-2xl font-semibold hover:text-blue-400 transition-colors">+91 9096976699</a>
               </div>
             </div>
 
@@ -71,7 +70,7 @@ export default function ContactPage() {
           </motion.div>
 
           {/* Address & Website Cards */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
@@ -101,9 +100,9 @@ export default function ContactPage() {
               </div>
               <h3 className="text-xl font-bold mb-2">Website</h3>
               <p className="text-slate-400 mb-4">Explore our online presence</p>
-              <a 
-                href={contactDetails.websiteHref} 
-                target="_blank" 
+              <a
+                href={contactDetails.websiteHref}
+                target="_blank"
                 rel="noopener noreferrer"
                 className="text-lg md:text-xl font-semibold hover:text-indigo-400 transition-colors"
               >
@@ -114,7 +113,7 @@ export default function ContactPage() {
         </div>
 
         {/* Footer Text */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
