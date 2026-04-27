@@ -21,18 +21,18 @@ export default function OwnerCard() {
         >
           <div className="flex flex-col md:flex-row items-stretch">
             {/* Image Section */}
-            <div className="md:w-1/2 relative min-h-[400px] md:min-h-[500px]">
+            <div className="md:w-[60%] relative min-h-[400px] md:min-h-[550px]">
               <Image
                 src="/images/owner.png"
                 alt={contactDetails.founderName}
                 fill
-                className="object-cover object-center scale-105 hover:scale-100 transition-transform duration-700"
+                className="object-cover object-center transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1c] via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-[#0a0f1c]/20"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#0a0f1c]/30 pointer-events-none"></div>
             </div>
 
             {/* Content Section */}
-            <div className="md:w-1/2 p-8 md:p-16 flex flex-col justify-center">
+            <div className="md:w-[40%] p-8 md:p-12 flex flex-col justify-center bg-[#0a0f1c]">
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}

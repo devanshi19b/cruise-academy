@@ -5,6 +5,7 @@ import AdmissionProcess from '@/components/AdmissionProcess';
 import Testimonials from '@/components/Testimonials';
 import Stats from '@/components/Stats';
 import Blog from '@/components/Blog';
+import FAQ from '@/components/FAQ';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
 
@@ -18,6 +19,7 @@ export default function Home() {
       <Testimonials />
       <Stats />
       <Blog />
+      <FAQ />
       <CTA />
       <Footer />
     </div>
