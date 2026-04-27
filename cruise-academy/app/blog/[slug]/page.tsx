@@ -6,6 +6,12 @@ import Link from 'next/link';
 import { blogPosts } from '@/lib/blog-data';
 import Footer from '@/components/Footer';
 
+export async function generateStaticParams() {
+  return blogPosts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
 export default function BlogPostPage() {
   const params = useParams();
   const slug = params.slug as string;
