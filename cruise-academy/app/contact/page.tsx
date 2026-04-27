@@ -51,7 +51,9 @@ export default function ContactPage() {
               <h3 className="text-xl font-bold mb-2">Phone</h3>
               <p className="text-slate-400 mb-4">Monday to Saturday, 9am to 6pm</p>
               <div className="space-y-2">
-                <a href="tel:+919096976699" className="block text-2xl font-semibold hover:text-blue-400 transition-colors">+91 9096976699</a>
+                <a href={`tel:${contactDetails.phoneHref}`} className="block text-2xl font-semibold hover:text-blue-400 transition-colors">
+                  {contactDetails.phoneDisplay}
+                </a>
               </div>
             </div>
 
@@ -86,9 +88,7 @@ export default function ContactPage() {
               <h3 className="text-xl font-bold mb-2">Address</h3>
               <p className="text-slate-400 mb-4">Visit our main office</p>
               <p className="text-lg md:text-xl font-semibold leading-relaxed">
-                Bashweshwar Bhavan, 466/A, Bhurke Colony,<br />
-                Front of Bhurke Banglow, Sadar Bazar,<br />
-                Satara (Pune) - 415001
+                {contactDetails.address}
               </p>
             </div>
 
