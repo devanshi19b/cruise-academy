@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { contactDetails } from '@/lib/contact';
 // Note: Requires installation if not present: npm install react-hook-form
 // import { useForm } from 'react-hook-form'; 
 // Using built-in state for zero-dependency seamless drop-in, while maintaining RHF-like structure.
@@ -224,16 +225,16 @@ export default function AdmissionFormModal({ isOpen, onClose }: AdmissionFormMod
                       </h1>
                       <div className="text-sm text-gray-600 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-1">
                         <p className="flex items-center gap-2">
-                          <span className="font-semibold text-blue-800">Phone:</span> 8888060439 / 8484820157
+                          <span className="font-semibold text-blue-800">Phone:</span> {contactDetails.phoneDisplay}
                         </p>
                         <p className="flex items-center gap-2">
-                          <span className="font-semibold text-blue-800">Email:</span> shrivastavagroupofinstitutes@gmail.com
+                          <span className="font-semibold text-blue-800">Email:</span> {contactDetails.email}
                         </p>
                         <p className="flex items-center gap-2 md:col-span-2">
-                          <span className="font-semibold text-blue-800">Address:</span> Bashweshwar Bhavan, 466/A, Bhurke Colony, Sadar Bazar, Satara - 415001
+                          <span className="font-semibold text-blue-800">Address:</span> {contactDetails.address}
                         </p>
                         <p className="flex items-center gap-2 md:col-span-2">
-                          <span className="font-semibold text-blue-800">Website:</span> www.shrivastavagroupofinstitutes.in
+                          <span className="font-semibold text-blue-800">Website:</span> {contactDetails.websiteDisplay}
                         </p>
                       </div>
                     </div>
