@@ -32,7 +32,18 @@ export default function OwnerCard() {
             </div>
 
             {/* Content Section */}
-            <div className="md:w-[40%] p-8 md:p-12 flex flex-col justify-center bg-[#0a0f1c]">
+            <div className="md:w-[40%] p-8 md:p-12 flex flex-col justify-center bg-[#0a0f1c] relative">
+              {/* Logo in top right corner */}
+              <div className="absolute top-6 right-6 md:top-8 md:right-8">
+                <Image
+                  src="/images/logo-transparent.png"
+                  alt="SGOI Logo"
+                  width={80}
+                  height={80}
+                  className="h-12 md:h-16 w-auto object-contain opacity-80"
+                />
+              </div>
+
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}

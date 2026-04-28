@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 import { contactDetails } from '@/lib/contact';
 import AdmissionFormModal from './AdmissionFormModal';
@@ -34,7 +35,14 @@ export default function Navbar() {
       >
         <nav className="max-w-7xl mx-auto w-full">
           <div className="flex items-center justify-between">
-            <Link href="/" className="flex-shrink-0 flex items-center">
+            <Link href="/" className="flex-shrink-0 flex items-center gap-3">
+              <Image 
+                src="/images/logo-transparent.png" 
+                alt="Institute Logo" 
+                width={40} 
+                height={40} 
+                className="h-10 w-auto object-contain" 
+              />
               <span className="text-lg md:text-xl font-bold tracking-tight text-white">
                 {contactDetails.organizationName}
               </span>

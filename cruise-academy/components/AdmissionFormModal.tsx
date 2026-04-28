@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 import { contactDetails } from '@/lib/contact';
 // Note: Requires installation if not present: npm install react-hook-form
 // import { useForm } from 'react-hook-form'; 
@@ -71,7 +72,7 @@ export default function AdmissionFormModal({ isOpen, onClose }: AdmissionFormMod
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value, type } = e.target;
-    
+
     if (type === 'checkbox') {
       const checked = (e.target as HTMLInputElement).checked;
       setFormData(prev => ({ ...prev, [name]: checked }));
@@ -93,7 +94,7 @@ export default function AdmissionFormModal({ isOpen, onClose }: AdmissionFormMod
     if (!formData.name.trim()) newErrors.name = 'Name is required';
     if (!formData.fatherName.trim()) newErrors.fatherName = 'Father\'s Name is required';
     if (!formData.dob) newErrors.dob = 'Date of Birth is required';
-    
+
     if (!formData.aadhar.trim()) {
       newErrors.aadhar = 'Aadhaar is required';
     } else if (!/^\d{12}$/.test(formData.aadhar.trim())) {
@@ -102,7 +103,7 @@ export default function AdmissionFormModal({ isOpen, onClose }: AdmissionFormMod
 
     if (!formData.sex) newErrors.sex = 'Gender selection is required';
     if (!formData.address.trim()) newErrors.address = 'Address is required';
-    
+
     if (!formData.phoneOffice.trim() && !formData.phoneRes.trim()) {
       newErrors.phoneOffice = 'At least one phone number is required';
     }
@@ -112,7 +113,7 @@ export default function AdmissionFormModal({ isOpen, onClose }: AdmissionFormMod
     }
 
     setErrors(newErrors);
-    
+
     if (Object.keys(newErrors).length > 0) {
       // Small vibration or scroll to error conceptually
       return false;
@@ -125,13 +126,13 @@ export default function AdmissionFormModal({ isOpen, onClose }: AdmissionFormMod
     if (!validate()) return;
 
     setIsSubmitting(true);
-    
+
     // Simulate API submission
     setTimeout(() => {
       console.log('Form submission successful', formData);
       setIsSubmitting(false);
       setIsSuccess(true);
-      
+
       // Auto close after showing success
       setTimeout(() => {
         onClose();
@@ -150,8 +151,8 @@ export default function AdmissionFormModal({ isOpen, onClose }: AdmissionFormMod
   const inputClasses = (name: keyof FormValues) => `
     w-full bg-white border rounded-lg px-4 py-2.5 text-gray-800 
     focus:outline-none focus:ring-2 transition-all duration-200 placeholder:text-gray-400
-    ${errors[name] 
-      ? 'border-red-400 focus:border-red-400 focus:ring-red-100 bg-red-50/30' 
+    ${errors[name]
+      ? 'border-red-400 focus:border-red-400 focus:ring-red-100 bg-red-50/30'
       : 'border-gray-200 hover:border-blue-300 focus:border-blue-500 focus:ring-blue-100'}
   `;
 
@@ -160,7 +161,7 @@ export default function AdmissionFormModal({ isOpen, onClose }: AdmissionFormMod
   return (
     <AnimatePresence>
       {isOpen && (
-        <div 
+        <div
           id="modal-scroll-container"
           className="fixed inset-0 z-[100] overflow-y-auto"
           data-lenis-prevent="true"
@@ -170,7 +171,7 @@ export default function AdmissionFormModal({ isOpen, onClose }: AdmissionFormMod
           }}
         >
           <div className="min-h-full flex items-center justify-center p-2 sm:p-4 py-8 relative">
-            
+
             {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -187,10 +188,10 @@ export default function AdmissionFormModal({ isOpen, onClose }: AdmissionFormMod
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               className="relative w-full max-w-5xl bg-white border border-gray-200 rounded-2xl shadow-2xl flex flex-col z-10 overflow-hidden"
             >
-              
+
               {/* Header space */}
               <div className="h-4 bg-blue-900 w-full"></div>
-              
+
               {/* Top Action Bar (Close button) */}
               <div className="absolute top-4 right-4 z-20">
                 <button
@@ -214,32 +215,38 @@ export default function AdmissionFormModal({ isOpen, onClose }: AdmissionFormMod
                 </div>
               ) : (
                 <div className="p-6 sm:p-10">
-                  
+
                   {/* HEADER SECTION - Simplified since logo moved to banner */}
                   <div className="flex flex-col md:flex-row items-center justify-between border-b pb-8 mb-8 gap-6 relative">
-                    
+
                     {/* Institute Details */}
                     <div className="flex-1 text-center md:text-left">
                       <h1 className="text-2xl md:text-3xl font-bold text-blue-900 mb-2 uppercase tracking-wide">
                         Shrivastava Group of Institutes
                       </h1>
-                      <div className="text-sm text-gray-600 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-1">
+                      <div className="text-sm text-gray-600 flex flex-col gap-1">
                         <p className="flex items-center gap-2">
                           <span className="font-semibold text-blue-800">Phone:</span> {contactDetails.phoneDisplay}
                         </p>
                         <p className="flex items-center gap-2">
                           <span className="font-semibold text-blue-800">Email:</span> {contactDetails.email}
                         </p>
-                        <p className="flex items-center gap-2 md:col-span-2">
+                        <p className="flex items-center gap-2">
                           <span className="font-semibold text-blue-800">Address:</span> {contactDetails.address}
-                        </p>
-                        <p className="flex items-center gap-2 md:col-span-2">
-                          <span className="font-semibold text-blue-800">Website:</span> {contactDetails.websiteDisplay}
                         </p>
                       </div>
                     </div>
 
-                    {/* Photo area removed */}
+                    {/* Logo area */}
+                    <div className="shrink-0 mb-4 md:mb-0">
+                      <Image
+                        src="/images/logo-transparent.png"
+                        alt="Institute Logo"
+                        width={100}
+                        height={100}
+                        className="h-20 md:h-24 w-auto object-contain"
+                      />
+                    </div>
 
                   </div>
 
@@ -252,9 +259,9 @@ export default function AdmissionFormModal({ isOpen, onClose }: AdmissionFormMod
 
                   {/* MAIN FORM */}
                   <form id="traditional-admission" onSubmit={handleSubmit} className="space-y-8" noValidate>
-                    
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-                      
+
                       <div className="md:col-span-2">
                         <label className={labelClasses}>1. Name (Master/Miss)</label>
                         <input type="text" name="name" value={formData.name} onChange={handleChange} className={inputClasses('name')} placeholder="Full Name" />
