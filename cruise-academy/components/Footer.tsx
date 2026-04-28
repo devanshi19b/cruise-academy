@@ -44,7 +44,7 @@ export default function Footer() {
             <div className="mb-6">
               <div className="bg-white p-3 rounded-2xl w-max shadow-lg shadow-cyan-500/10">
                 <Image 
-                  src="/images/footer-logo.png" 
+                  src="/images/footer-logo-new.jpg" 
                   alt="SGOI Logo" 
                   width={120} 
                   height={120} 
