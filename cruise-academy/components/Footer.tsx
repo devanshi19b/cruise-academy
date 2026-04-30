@@ -41,18 +41,18 @@ export default function Footer() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="mb-6">
-              <div className="bg-white p-3 rounded-2xl w-max shadow-lg shadow-cyan-500/10">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-max">
                 <Image
-                  src="./images/logo.png"
+                  src="/images/logo-transparent.png"
                   alt="SGOI Logo"
                   width={120}
                   height={120}
-                  className="h-16 w-auto object-contain"
+                  className="h-20 w-auto object-contain"
                 />
               </div>
+              <h3 className="text-white text-lg font-bold tracking-wide leading-tight">Shrivastava Group of Institutes</h3>
             </div>
-            <h3 className="text-cyan-400 text-sm font-bold tracking-wide mb-4">Shrivastava Group of Institutes</h3>
             <p className="text-[#64748b] text-xs leading-relaxed max-w-[280px] mb-6">
               A premier coaching hub in Satara specializing in Class X, XII, NEET, and IIT-JEE preparation. We focus on individual attention through small batch sizes to ensure every student excels.
             </p>
