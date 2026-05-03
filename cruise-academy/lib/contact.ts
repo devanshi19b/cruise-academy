@@ -1,7 +1,7 @@
 export const contactDetails = {
   organizationName: "Shrivastava Group of Institutes",
   founderName: "Mr. Rohit Shrivastava",
-  email: "sgoiedu.com@gmail.com",
+  email: "sgoiedupvt@gmail.com",
   phoneDisplay: "9096976699",
   phoneHref: "+919096976699",
   websiteDisplay: "sgoiedu.com",
