@@ -37,7 +37,7 @@ export default function FAQ() {
   return (
     <section id="faq" className="py-24 bg-[#0a0f1c] text-white relative overflow-hidden">
       {/* Background glow */}
-      <div className="absolute top-1/2 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] translate-x-1/2 -translate-y-1/2"></div>
+      <div className="absolute top-1/2 right-0 w-96 h-96 bg-[radial-gradient(circle_at_center,_rgba(37,99,235,0.1)_0%,_transparent_70%)] rounded-full translate-x-1/2 -translate-y-1/2 transform-gpu"></div>
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         <div className="flex flex-col lg:flex-row gap-16">

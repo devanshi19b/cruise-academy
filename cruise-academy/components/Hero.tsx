@@ -4,6 +4,8 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
 import { useRef } from 'react';
 
+import { contactDetails } from '@/lib/contact';
+
 export default function Hero() {
   const ref = useRef(null);
   

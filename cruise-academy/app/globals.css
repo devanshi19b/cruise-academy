@@ -30,7 +30,7 @@ body {
 }
 
 html {
-  scroll-behavior: smooth;
+  /* Removed scroll-behavior: smooth to prevent conflict with Lenis */
 }
 
 /* Custom Sea/Cruise Animations */

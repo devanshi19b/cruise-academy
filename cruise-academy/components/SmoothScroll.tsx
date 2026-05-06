@@ -19,15 +19,18 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     resizeObserver.observe(document.body);
     resizeObserver.observe(document.documentElement);
 
+    let rafId: number;
     function raf(time: number) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     }
 
-    requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
 
     return () => {
       lenis.destroy();
+      resizeObserver.disconnect();
+      cancelAnimationFrame(rafId);
     };
   }, []);
 

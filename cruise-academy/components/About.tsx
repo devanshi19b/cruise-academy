@@ -37,7 +37,7 @@ export default function About() {
   return (
     <section id="about" className="py-24 relative overflow-hidden bg-[#0a0f1c]">
       <div className="max-w-6xl mx-auto px-4 relative z-10">
-        <motion.div 
+        <motion.div
           className="text-center mb-20"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -47,21 +47,21 @@ export default function About() {
           <h2 className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">Our Story</h2>
           <p className="text-xl text-slate-300 max-w-2xl mx-auto">The journey of building a legacy of excellence in education and career guidance.</p>
         </motion.div>
-        
+
         <div className="relative max-w-5xl mx-auto">
           {/* Central Vertical Line */}
           <div className="absolute left-1/2 transform -translate-x-1/2 w-px h-full bg-slate-800 hidden md:block"></div>
-          
+
           <div className="space-y-12 md:space-y-0">
             {timelineData.map((item, index) => {
               const isEven = index % 2 === 0;
               return (
                 <div key={index} className="relative flex flex-col md:flex-row items-center justify-between md:h-64">
-                  
+
                   {/* Left Section */}
                   <div className={`md:w-1/2 w-full flex ${isEven ? 'md:justify-end md:pr-16' : 'md:justify-start md:pl-16'} justify-center mb-8 md:mb-0 relative order-2 md:order-1`}>
                     {isEven ? (
-                      <motion.div 
+                      <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
@@ -71,7 +71,7 @@ export default function About() {
                         {item.year}
                       </motion.div>
                     ) : (
-                      <motion.div 
+                      <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
@@ -86,7 +86,7 @@ export default function About() {
 
                   {/* Center Dot for Desktop */}
                   <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center hidden md:flex top-1/2 -translate-y-1/2 z-20">
-                    <motion.div 
+                    <motion.div
                       initial={{ scale: 0 }}
                       whileInView={{ scale: 1 }}
                       transition={{ duration: 0.4, delay: 0.3, type: "spring" }}
@@ -98,7 +98,7 @@ export default function About() {
                   {/* Right Section */}
                   <div className={`md:w-1/2 w-full flex ${isEven ? 'md:justify-start md:pl-16' : 'md:justify-end md:pr-16'} justify-center order-1 md:order-2 mb-4 md:mb-0`}>
                     {isEven ? (
-                      <motion.div 
+                      <motion.div
                         initial={{ opacity: 0, x: 50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
@@ -109,7 +109,7 @@ export default function About() {
                         <p className="text-slate-300 leading-relaxed text-sm md:text-base">{item.description}</p>
                       </motion.div>
                     ) : (
-                      <motion.div 
+                      <motion.div
                         initial={{ opacity: 0, x: 50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
@@ -120,7 +120,7 @@ export default function About() {
                       </motion.div>
                     )}
                   </div>
-                  
+
                 </div>
               );
             })}

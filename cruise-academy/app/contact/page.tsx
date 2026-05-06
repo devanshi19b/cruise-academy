@@ -110,6 +110,35 @@ export default function ContactPage() {
               </a>
             </div>
           </motion.div>
+
+          {/* Registration Details Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="md:col-span-2 bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-3xl hover:border-white/20 transition-all group"
+          >
+            <div className="w-12 h-12 bg-emerald-600/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <svg className="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+            </div>
+            <h3 className="text-xl font-bold mb-4">Registration & Licensing</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div>
+                <p className="text-slate-400 text-sm mb-1">Registration No.</p>
+                <p className="font-semibold text-lg tracking-wide">{contactDetails.registrationNo}</p>
+              </div>
+              <div>
+                <p className="text-slate-400 text-sm mb-1">License No.</p>
+                <p className="font-semibold text-lg tracking-wide">{contactDetails.licenseNo}</p>
+              </div>
+              <div>
+                <p className="text-slate-400 text-sm mb-1">Aadhar Udyog Number</p>
+                <p className="font-semibold text-lg tracking-wide">{contactDetails.aadharUdyog}</p>
+              </div>
+            </div>
+          </motion.div>
         </div>
 
         {/* Footer Text */}

@@ -15,8 +15,8 @@ export default function SeafarerSection() {
     <section className="py-20 bg-gradient-to-r from-blue-900 via-blue-800 to-navy-900 text-white relative overflow-hidden">
       {/* Background pattern & Floating Bubbles */}
       <div className="absolute inset-0 opacity-20 overflow-hidden pointer-events-none">
-        <div className="absolute top-10 left-10 w-64 h-64 bg-blue-500 rounded-full mix-blend-screen filter blur-3xl animate-float"></div>
-        <div className="absolute bottom-10 right-10 w-96 h-96 bg-cyan-600 rounded-full mix-blend-screen filter blur-3xl animate-float-delayed"></div>
+        <div className="absolute top-10 left-10 w-64 h-64 bg-[radial-gradient(circle_at_center,_rgba(59,130,246,0.6)_0%,_transparent_70%)] rounded-full mix-blend-screen animate-float transform-gpu"></div>
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-[radial-gradient(circle_at_center,_rgba(8,145,178,0.6)_0%,_transparent_70%)] rounded-full mix-blend-screen animate-float-delayed transform-gpu"></div>
         
         {[...Array(15)].map((_, i) => (
           <div 

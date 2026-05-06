@@ -45,10 +45,10 @@ export default function Programs() {
   return (
     <section className="py-24 bg-[#081121] relative overflow-hidden">
       
-      {/* Ambient Glow For Glass Refraction */}
+      {/* Ambient Glow For Glass Refraction (Optimized for performance) */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-30">
-        <div className="absolute top-1/4 -left-1/4 w-[40rem] h-[40rem] bg-blue-600 rounded-full mix-blend-screen filter blur-[120px]"></div>
-        <div className="absolute bottom-1/4 -right-1/4 w-[40rem] h-[40rem] bg-cyan-500 rounded-full mix-blend-screen filter blur-[120px]"></div>
+        <div className="absolute top-1/4 -left-1/4 w-[40rem] h-[40rem] bg-[radial-gradient(circle_at_center,_rgba(37,99,235,0.8)_0%,_transparent_70%)] rounded-full mix-blend-screen transform-gpu"></div>
+        <div className="absolute bottom-1/4 -right-1/4 w-[40rem] h-[40rem] bg-[radial-gradient(circle_at_center,_rgba(6,182,212,0.8)_0%,_transparent_70%)] rounded-full mix-blend-screen transform-gpu"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 relative z-10 flex flex-col xl:flex-row gap-6">

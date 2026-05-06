@@ -43,9 +43,14 @@ export default function Navbar() {
                 height={40} 
                 className="h-10 w-auto object-contain" 
               />
-              <span className="text-lg md:text-xl font-bold tracking-tight text-white">
-                {contactDetails.organizationName}
-              </span>
+              <div className="flex flex-col">
+                <span className="text-lg md:text-xl font-bold tracking-tight text-white leading-tight">
+                  {contactDetails.organizationName}
+                </span>
+                <span className="text-[10px] md:text-xs text-white/50 font-medium tracking-[0.05em]">
+                  License No: {contactDetails.licenseNo}
+                </span>
+              </div>
             </Link>
 
             {/* Navigation Links (Desktop) */}

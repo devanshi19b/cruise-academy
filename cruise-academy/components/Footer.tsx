@@ -51,7 +51,12 @@ export default function Footer() {
                   className="h-20 w-auto object-contain"
                 />
               </div>
+            <div className="flex flex-col">
               <h3 className="text-white text-lg font-bold tracking-wide leading-tight">Shrivastava Group of Institutes</h3>
+              <span className="text-[10px] text-[#64748b] font-medium tracking-[0.05em] mt-1">
+                License No: {contactDetails.licenseNo}
+              </span>
+            </div>
             </div>
             <p className="text-[#64748b] text-xs leading-relaxed max-w-[280px] mb-6">
               A premier coaching hub in Satara specializing in Class X, XII, NEET, and IIT-JEE preparation. We focus on individual attention through small batch sizes to ensure every student excels.

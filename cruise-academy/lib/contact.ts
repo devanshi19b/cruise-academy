@@ -9,4 +9,7 @@ export const contactDetails = {
   address:
     "Bashweshwar Bhavan, Bhurke Colony, Sadar Bazar,(Satara) Maharashtra (415001)",
   logoPath: "/institute-logo.png",
+  registrationNo: "9339400393464926",
+  licenseNo: "9077459629903",
+  aadharUdyog: "MH30D0018983",
 } as const;
