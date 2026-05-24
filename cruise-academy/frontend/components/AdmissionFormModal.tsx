@@ -244,6 +244,7 @@ export default function AdmissionFormModal({ isOpen, onClose }: AdmissionFormMod
                         alt="Institute Logo"
                         width={100}
                         height={100}
+                        style={{ width: 'auto', height: 'auto' }}
                         className="h-20 md:h-24 w-auto object-contain"
                       />
                     </div>

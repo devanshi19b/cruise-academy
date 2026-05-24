@@ -1,40 +1,47 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useState } from 'react';
+import CruiseProgramModal from '@/components/CruiseProgramModal';
+import AdmissionFormModal from '@/components/AdmissionFormModal';
 
 const programs = [
   {
     title: "Engineering",
-    description: "Next-gen AI, Robotics, and Civil Engineering modules.",
+    description: "Technical training and preparation for engineering roles on cruise liners. Personality development, communication training, and interview preparation according to international standards.",
     iconColor: "bg-blue-900",
     iconBorder: "border-blue-700",
+    category: "engineering",
     icon: (
       <svg className="w-5 h-5 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
     )
   },
   {
     title: "Medical",
-    description: "Advanced clinical research and nursing excellence programs.",
+    description: "Germany Nursing Placement Program: Specially designed for nursing graduates. 8 months training in India, German language classes, visa guidance, and placement in Germany's healthcare sector.",
     iconColor: "bg-red-900",
     iconBorder: "border-red-700",
+    category: "medical",
     icon: (
       <svg className="w-5 h-5 text-red-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
     )
   },
   {
     title: "Study Abroad",
-    description: "Global immersion programs with partnered universities.",
+    description: "Cruise Career Upgrade Programme: Transition from local hospitality/service jobs to international careers with higher salary packages and global cruise line exposure.",
     iconColor: "bg-[#7c3aed]", // Purple
     iconBorder: "border-[#8b5cf6]",
+    category: "study_abroad",
     icon: (
       <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
     )
   },
   {
     title: "Career Guidance",
-    description: "Personalized mentoring from industry veterans.",
+    description: "Cruise Placement Preparation Programme: Designed specially for graduate candidates. Fast-track training, resume building, and placement support according to international standards.",
     iconColor: "bg-[#10b981]", // Green
     iconBorder: "border-[#34d399]",
+    category: "career_guidance",
     icon: (
       <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
     )
@@ -42,8 +49,17 @@ const programs = [
 ];
 
 export default function Programs() {
+  const [isProgramOpen, setIsProgramOpen] = useState(false);
+  const [isAdmissionOpen, setIsAdmissionOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState<string | undefined>(undefined);
+
+  const openProgram = (category?: string) => {
+    setSelectedCategory(category);
+    setIsProgramOpen(true);
+  };
+
   return (
-    <section className="py-24 bg-[#081121] relative overflow-hidden">
+    <section id="programs" className="py-24 bg-[#081121] relative overflow-hidden">
       
       {/* Ambient Glow For Glass Refraction (Optimized for performance) */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-30">
@@ -53,7 +69,7 @@ export default function Programs() {
 
       <div className="max-w-7xl mx-auto px-4 relative z-10 flex flex-col xl:flex-row gap-6">
         
-        {/* Left Card: Seafarer Training */}
+        {/* Left Card: Seafarer Training (Cruise Career Development Programme) */}
         <motion.div 
           className="xl:w-[45%] bg-white/[0.04] backdrop-blur-2xl rounded-3xl p-10 flex flex-col justify-center relative shadow-2xl overflow-hidden border border-white/10"
           initial={{ opacity: 0, x: -30 }}
@@ -73,42 +89,70 @@ export default function Programs() {
             Seafarer Training & <br />Maritime Excellence
           </h2>
           <p className="text-blue-100/80 text-lg mb-10 max-w-sm relative leading-relaxed">
-            Join our elite maritime academy. We don&apos;t just teach navigation; we build masters of the sea with 100% placement assurance.
+            <strong>Cruise Career Development Programme:</strong> Specially designed for 10th & 12th pass students. Complete academic guidance for graduation combined with professional cruise industry prep.
           </p>
           
           <div className="relative inline-block w-max">
             <div className="absolute inset-[-4px] rounded-full border border-blue-400 border-dashed animate-[spin_10s_linear_infinite]"></div>
-            <button className="relative bg-white text-[#0a0f1c] hover:bg-transparent hover:text-white hover:border hover:border-white px-8 py-3 rounded-full font-bold transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)] whitespace-nowrap">
+            <button 
+              onClick={() => openProgram('seafarer')}
+              className="relative bg-white text-[#0a0f1c] hover:bg-transparent hover:text-white hover:border hover:border-white px-8 py-3 rounded-full font-bold transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)] whitespace-nowrap cursor-pointer"
+            >
               Start Your Voyage
             </button>
           </div>
         </motion.div>
 
-        {/* Right Grid: Other Programs */}
+        {/* Right Grid: Other Programs mapped to actual courses */}
         <div className="xl:w-[55%] grid grid-cols-1 md:grid-cols-2 gap-6">
           {programs.map((program, index) => (
             <motion.div
               key={program.title}
-              className="bg-white/[0.02] backdrop-blur-xl rounded-2xl p-8 border border-white/[0.08] hover:border-white/20 transition-all hover:-translate-y-1 hover:bg-white/[0.05] shadow-2xl group relative overflow-hidden"
+              className="bg-white/[0.02] backdrop-blur-xl rounded-2xl p-8 border border-white/[0.08] hover:border-white/20 transition-all hover:-translate-y-1 hover:bg-white/[0.05] shadow-2xl group relative overflow-hidden flex flex-col justify-between"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <div 
-                className={`w-14 h-14 ${program.iconColor} border ${program.iconBorder} rounded-2xl flex items-center justify-center shadow-lg mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 relative z-10`}
-              >
-                {program.icon}
+              <div>
+                <div 
+                  className={`w-14 h-14 ${program.iconColor} border ${program.iconBorder} rounded-2xl flex items-center justify-center shadow-lg mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 relative z-10`}
+                >
+                  {program.icon}
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-3 tracking-tight">{program.title}</h3>
+                <p className="text-slate-300 leading-relaxed text-sm">
+                  {program.description}
+                </p>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-3 tracking-tight">{program.title}</h3>
-              <p className="text-slate-300 leading-relaxed text-sm">
-                {program.description}
-              </p>
+
+              <button 
+                onClick={() => openProgram(program.category)} 
+                className="text-blue-400 hover:text-cyan-300 text-xs font-black tracking-wider uppercase flex items-center gap-1.5 cursor-pointer mt-6 transition-colors duration-200"
+              >
+                Explore Program
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"/></svg>
+              </button>
             </motion.div>
           ))}
         </div>
         
       </div>
+
+      <CruiseProgramModal 
+        isOpen={isProgramOpen} 
+        onClose={() => setIsProgramOpen(false)} 
+        onApplyClick={() => {
+          setIsProgramOpen(false);
+          setIsAdmissionOpen(true);
+        }}
+        categoryFilter={selectedCategory}
+      />
+
+      <AdmissionFormModal 
+        isOpen={isAdmissionOpen} 
+        onClose={() => setIsAdmissionOpen(false)} 
+      />
     </section>
   );
 }

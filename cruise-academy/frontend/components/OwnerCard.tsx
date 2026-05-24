@@ -40,6 +40,7 @@ export default function OwnerCard() {
                   alt="SGOI Logo"
                   width={100}
                   height={100}
+                  style={{ width: 'auto', height: 'auto' }}
                   className="h-16 md:h-20 w-auto object-contain"
                 />
               </div>
@@ -88,7 +89,7 @@ export default function OwnerCard() {
                   {/* Right Column: Licensing (Minimalist) */}
                   <div className="md:pl-10 md:border-l border-white/5 flex flex-col">
                     <h5 className="text-white/60 text-xs font-bold tracking-[0.3em] uppercase mb-10">Licensing & Accreditations</h5>
-                    
+
                     <div className="space-y-8">
                       <div className="group">
                         <span className="block text-[9px] uppercase tracking-[0.2em] text-white/30 mb-2 group-hover:text-blue-500/40 transition-colors">Registration Number</span>
