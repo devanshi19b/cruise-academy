@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import AdmissionFormModal from './AdmissionFormModal';
 
 interface CruiseProgramModalProps {
   isOpen: boolean;
@@ -259,6 +260,7 @@ const programsData = [
 export default function CruiseProgramModal({ isOpen, onClose, onApplyClick, categoryFilter }: CruiseProgramModalProps) {
   const [activeTab, setActiveTab] = useState(0);
   const [showScroll, setShowScroll] = useState(true);
+  const [isAdmissionOpen, setIsAdmissionOpen] = useState(false);
 
   const detailsRef = useRef<HTMLDivElement>(null);
 
@@ -427,7 +429,7 @@ export default function CruiseProgramModal({ isOpen, onClose, onApplyClick, cate
                   </h2>
                 </div>
                 <button
-                  onClick={onApplyClick}
+                  onClick={() => setIsAdmissionOpen(true)}
                   className="bg-blue-600 hover:bg-blue-500 text-white text-xs font-black tracking-wider uppercase px-5 py-2.5 rounded-xl border border-blue-400/50 hover:-translate-y-0.5 active:translate-y-0 transition-all shrink-0 cursor-pointer shadow-lg shadow-blue-600/30"
                 >
                   Quick Apply
@@ -527,7 +529,7 @@ export default function CruiseProgramModal({ isOpen, onClose, onApplyClick, cate
                   Close
                 </button>
                 <button
-                  onClick={onApplyClick}
+                  onClick={() => setIsAdmissionOpen(true)}
                   className="w-1/2 sm:w-auto px-7 py-2.5 rounded-xl text-xs font-black text-white bg-blue-600 hover:bg-blue-500 shadow-lg shadow-blue-600/30 transition-all border border-blue-400/50 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
                 >
                   Apply Now
@@ -548,6 +550,11 @@ export default function CruiseProgramModal({ isOpen, onClose, onApplyClick, cate
               <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3.5" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
             </button>
           )}
+
+          <AdmissionFormModal 
+            isOpen={isAdmissionOpen} 
+            onClose={() => setIsAdmissionOpen(false)} 
+          />
         </div>
       )}
     </AnimatePresence>
