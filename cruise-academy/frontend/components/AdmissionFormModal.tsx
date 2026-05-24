@@ -242,10 +242,9 @@ export default function AdmissionFormModal({ isOpen, onClose }: AdmissionFormMod
                       <Image
                         src="/images/logo-transparent.png"
                         alt="Institute Logo"
-                        width={100}
-                        height={100}
-                        style={{ width: 'auto', height: 'auto' }}
-                        className="h-20 md:h-24 w-auto object-contain"
+                        width={60}
+                        height={60}
+                        className="h-12 md:h-14 w-auto object-contain"
                       />
                     </div>
 
