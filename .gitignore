@@ -9,8 +9,10 @@ node_modules/
 # Production builds
 dist/
 build/
+out/
 **/dist/
 **/build/
+**/out/
 
 # Environment variables
 .env
