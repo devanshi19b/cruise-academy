@@ -35,19 +35,20 @@ export default function Navbar() {
       >
         <nav className="max-w-7xl mx-auto w-full">
           <div className="flex items-center justify-between">
-            <Link href="/" className="flex-shrink-0 flex items-center gap-3">
+            <Link href="/" className="flex items-center gap-2 sm:gap-3 max-w-[60%] sm:max-w-[75%] md:max-w-none md:flex-shrink-0 min-w-0">
               <Image 
                 src="/images/logo-transparent.png" 
                 alt="Institute Logo" 
                 width={40} 
                 height={40} 
-                className="h-10 w-auto object-contain" 
+                style={{ height: '40px', width: 'auto' }}
+                className="h-10 w-auto object-contain flex-shrink-0" 
               />
-              <div className="flex flex-col">
-                <span className="text-lg md:text-xl font-bold tracking-tight text-white leading-tight">
+              <div className="flex flex-col min-w-0">
+                <span className="text-xs sm:text-base md:text-xl font-bold tracking-tight text-white leading-tight truncate sm:whitespace-normal">
                   {contactDetails.organizationName}
                 </span>
-                <span className="text-[10px] md:text-xs text-white/50 font-medium tracking-[0.05em]">
+                <span className="text-[9px] md:text-xs text-white/50 font-medium tracking-[0.05em] truncate">
                   License No: {contactDetails.licenseNo}
                 </span>
               </div>

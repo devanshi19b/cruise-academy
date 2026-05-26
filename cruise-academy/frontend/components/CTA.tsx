@@ -15,13 +15,13 @@ export default function CTA() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="bg-[#121c2d] p-12 md:p-16 rounded-[2.5rem] border border-white/5 shadow-2xl relative overflow-hidden"
+          className="bg-[#121c2d] p-6 sm:p-12 md:p-16 rounded-[2.5rem] border border-white/5 shadow-2xl relative overflow-hidden"
         >
           {/* Subtle glow */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[30rem] h-[30rem] bg-[radial-gradient(circle_at_center,_rgba(6,182,212,0.1)_0%,_transparent_70%)] rounded-full pointer-events-none transform-gpu"></div>
 
-          <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight relative z-10 drop-shadow-sm">Start Your Journey Today</h2>
-          <p className="text-xl text-slate-300 mb-10 relative z-10 max-w-2xl mx-auto">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-black mb-6 tracking-tight relative z-10 drop-shadow-sm">Start Your Journey Today</h2>
+          <p className="text-base sm:text-xl text-slate-300 mb-10 relative z-10 max-w-2xl mx-auto">
             Take the first step towards your dream career. Contact us for personalized guidance and support.
           </p>
           

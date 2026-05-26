@@ -107,9 +107,9 @@ export default function CareersPage() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl font-bold mb-4">Don't see a fit?</h2>
+          <h2 className="text-3xl font-bold mb-4">Don&apos;t see a fit?</h2>
           <p className="text-slate-300 mb-8 max-w-xl mx-auto">
-            We are always open to meeting talented individuals. Send your resume to our HR department and we'll keep you in mind for future openings.
+            We are always open to meeting talented individuals. Send your resume to our HR department and we&apos;ll keep you in mind for future openings.
           </p>
           <a href="mailto:hr@shrivastavagroup.in" className="inline-block text-cyan-400 font-bold hover:underline">
             hr@shrivastavagroup.in

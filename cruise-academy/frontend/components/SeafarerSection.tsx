@@ -2,6 +2,24 @@
 
 import { motion } from 'framer-motion';
 
+const BUBBLES = [
+  { left: "12%", size: "18px", delay: "1.2s", duration: "11s" },
+  { left: "45%", size: "25px", delay: "0.5s", duration: "9s" },
+  { left: "78%", size: "14px", delay: "3.2s", duration: "12s" },
+  { left: "23%", size: "32px", delay: "2.1s", duration: "10s" },
+  { left: "89%", size: "22px", delay: "4.5s", duration: "13s" },
+  { left: "56%", size: "16px", delay: "1.8s", duration: "8s" },
+  { left: "34%", size: "28px", delay: "5.2s", duration: "11s" },
+  { left: "67%", size: "12px", delay: "0.2s", duration: "14s" },
+  { left: "5%",  size: "30px", delay: "6.1s", duration: "10s" },
+  { left: "92%", size: "15px", delay: "2.8s", duration: "12s" },
+  { left: "71%", size: "24px", delay: "7.0s", duration: "9s" },
+  { left: "39%", size: "20px", delay: "3.9s", duration: "13s" },
+  { left: "83%", size: "17px", delay: "1.0s", duration: "11s" },
+  { left: "19%", size: "26px", delay: "5.8s", duration: "10s" },
+  { left: "50%", size: "35px", delay: "0.0s", duration: "12s" }
+];
+
 export default function SeafarerSection() {
   const features = [
     "Cruise & cargo ship training programs",
@@ -18,16 +36,16 @@ export default function SeafarerSection() {
         <div className="absolute top-10 left-10 w-64 h-64 bg-[radial-gradient(circle_at_center,_rgba(59,130,246,0.6)_0%,_transparent_70%)] rounded-full mix-blend-screen animate-float transform-gpu"></div>
         <div className="absolute bottom-10 right-10 w-96 h-96 bg-[radial-gradient(circle_at_center,_rgba(8,145,178,0.6)_0%,_transparent_70%)] rounded-full mix-blend-screen animate-float-delayed transform-gpu"></div>
         
-        {[...Array(15)].map((_, i) => (
+        {BUBBLES.map((bubble, i) => (
           <div 
             key={`bubble-${i}`} 
             className="absolute rounded-full border border-white/20 bg-white/10 backdrop-blur-sm animate-bubble"
             style={{
-              left: `${Math.random() * 100}%`,
-              width: `${Math.random() * 30 + 10}px`,
-              height: `${Math.random() * 30 + 10}px`,
-              animationDelay: `${Math.random() * 8}s`,
-              animationDuration: `${Math.random() * 5 + 8}s`
+              left: bubble.left,
+              width: bubble.size,
+              height: bubble.size,
+              animationDelay: bubble.delay,
+              animationDuration: bubble.duration
             }}
           />
         ))}

@@ -33,17 +33,7 @@ export default function OwnerCard() {
 
             {/* Content Section */}
             <div className="md:w-[60%] p-8 md:p-12 flex flex-col justify-center bg-[#0a0f1c] relative">
-              {/* Logo in top right corner */}
-              <div className="absolute top-6 right-6 md:top-8 md:right-8 opacity-30">
-                <Image
-                  src="/images/logo-transparent.png"
-                  alt="SGOI Logo"
-                  width={100}
-                  height={100}
-                  style={{ width: 'auto', height: 'auto' }}
-                  className="h-16 md:h-20 w-auto object-contain"
-                />
-              </div>
+
 
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
@@ -56,7 +46,7 @@ export default function OwnerCard() {
                   {contactDetails.founderName}
                 </h2>
                 <p className="text-slate-300 text-lg leading-relaxed mb-10 italic max-w-2xl">
-                  "Education is not just about learning facts, but training the mind to think and the heart to lead. Our mission is to bridge the gap between dreams and reality for every student."
+                  &ldquo;Education is not just about learning facts, but training the mind to think and the heart to lead. Our mission is to bridge the gap between dreams and reality for every student.&rdquo;
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">

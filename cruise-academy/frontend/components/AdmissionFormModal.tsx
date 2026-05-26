@@ -60,8 +60,13 @@ export default function AdmissionFormModal({ isOpen, onClose }: AdmissionFormMod
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
-      setShowScroll(true);
-
+      const timer = setTimeout(() => {
+        setShowScroll(true);
+      }, 0);
+      return () => {
+        clearTimeout(timer);
+        document.body.style.overflow = 'unset';
+      };
     } else {
       document.body.style.overflow = 'unset';
     }
@@ -214,14 +219,14 @@ export default function AdmissionFormModal({ isOpen, onClose }: AdmissionFormMod
                   <p className="text-gray-500">Thank you for applying to Shrivastava Group of Institutes.</p>
                 </div>
               ) : (
-                <div className="p-6 sm:p-10">
+                <div className="p-4 sm:p-10">
 
                   {/* HEADER SECTION - Simplified since logo moved to banner */}
-                  <div className="flex flex-col md:flex-row items-center justify-between border-b pb-8 mb-8 gap-6 relative">
+                  <div className="flex flex-col md:flex-row items-center justify-between border-b pb-6 sm:pb-8 mb-6 sm:mb-8 gap-4 sm:gap-6 relative">
 
                     {/* Institute Details */}
                     <div className="flex-1 text-center md:text-left">
-                      <h1 className="text-2xl md:text-3xl font-bold text-blue-900 mb-2 uppercase tracking-wide">
+                      <h1 className="text-lg sm:text-2xl md:text-3xl font-bold text-blue-900 mb-2 uppercase tracking-wide">
                         Shrivastava Group of Institutes
                       </h1>
                       <div className="text-sm text-gray-600 flex flex-col gap-1">

@@ -2,16 +2,11 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
-import { useRef, useState } from 'react';
-import CruiseProgramModal from '@/components/CruiseProgramModal';
-import AdmissionFormModal from '@/components/AdmissionFormModal';
-
-import { contactDetails } from '@/lib/contact';
+import { useRef } from 'react';
+import Link from 'next/link';
 
 export default function Hero() {
   const ref = useRef(null);
-  const [isProgramOpen, setIsProgramOpen] = useState(false);
-  const [isAdmissionOpen, setIsAdmissionOpen] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -62,29 +57,15 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <button
-              onClick={() => setIsProgramOpen(true)}
-              className="border border-white/50 bg-white/10 backdrop-blur-md hover:bg-white hover:text-blue-900 px-8 py-3 rounded-lg font-semibold transition-all duration-300 cursor-pointer"
+            <Link
+              href="/courses"
+              className="border border-white/50 bg-white/10 backdrop-blur-md hover:bg-white hover:text-blue-900 px-8 py-3 rounded-lg font-semibold transition-all duration-300 cursor-pointer inline-block"
             >
               Explore Programs
-            </button>
+            </Link>
           </motion.div>
         </div>
       </section>
-
-      <CruiseProgramModal
-        isOpen={isProgramOpen}
-        onClose={() => setIsProgramOpen(false)}
-        onApplyClick={() => {
-          setIsProgramOpen(false);
-          setIsAdmissionOpen(true);
-        }}
-      />
-
-      <AdmissionFormModal
-        isOpen={isAdmissionOpen}
-        onClose={() => setIsAdmissionOpen(false)}
-      />
     </>
   );
 }

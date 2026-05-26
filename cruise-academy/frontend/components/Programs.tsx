@@ -1,9 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useState } from 'react';
-import CruiseProgramModal from '@/components/CruiseProgramModal';
-import AdmissionFormModal from '@/components/AdmissionFormModal';
+import Link from 'next/link';
 
 const programs = [
   {
@@ -48,16 +46,15 @@ const programs = [
   }
 ];
 
+const courseRoutes: Record<string, string> = {
+  seafarer: "/courses/course-1",
+  engineering: "/courses/course-2",
+  study_abroad: "/courses/course-3",
+  career_guidance: "/courses/course-2",
+  medical: "/courses/course-4"
+};
+
 export default function Programs() {
-  const [isProgramOpen, setIsProgramOpen] = useState(false);
-  const [isAdmissionOpen, setIsAdmissionOpen] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState<string | undefined>(undefined);
-
-  const openProgram = (category?: string) => {
-    setSelectedCategory(category);
-    setIsProgramOpen(true);
-  };
-
   return (
     <section id="programs" className="py-24 bg-[#081121] relative overflow-hidden">
       
@@ -71,7 +68,7 @@ export default function Programs() {
         
         {/* Left Card: Seafarer Training (Cruise Career Development Programme) */}
         <motion.div 
-          className="xl:w-[45%] bg-white/[0.04] backdrop-blur-2xl rounded-3xl p-10 flex flex-col justify-center relative shadow-2xl overflow-hidden border border-white/10"
+          className="xl:w-[45%] bg-white/[0.04] backdrop-blur-2xl rounded-3xl p-6 sm:p-10 flex flex-col justify-center relative shadow-2xl overflow-hidden border border-white/10"
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
@@ -85,7 +82,7 @@ export default function Programs() {
             </svg>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight relative font-sans tracking-tight drop-shadow-sm">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-white mb-6 leading-tight relative font-sans tracking-tight drop-shadow-sm">
             Seafarer Training & <br />Maritime Excellence
           </h2>
           <p className="text-blue-100/80 text-lg mb-10 max-w-sm relative leading-relaxed">
@@ -94,12 +91,12 @@ export default function Programs() {
           
           <div className="relative inline-block w-max">
             <div className="absolute inset-[-4px] rounded-full border border-blue-400 border-dashed animate-[spin_10s_linear_infinite]"></div>
-            <button 
-              onClick={() => openProgram('seafarer')}
-              className="relative bg-white text-[#0a0f1c] hover:bg-transparent hover:text-white hover:border hover:border-white px-8 py-3 rounded-full font-bold transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)] whitespace-nowrap cursor-pointer"
+            <Link 
+              href="/courses/course-1"
+              className="relative inline-block bg-white text-[#0a0f1c] hover:bg-transparent hover:text-white hover:border hover:border-white px-8 py-3 rounded-full font-bold transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)] whitespace-nowrap cursor-pointer text-center"
             >
               Start Your Voyage
-            </button>
+            </Link>
           </div>
         </motion.div>
 
@@ -108,7 +105,7 @@ export default function Programs() {
           {programs.map((program, index) => (
             <motion.div
               key={program.title}
-              className="bg-white/[0.02] backdrop-blur-xl rounded-2xl p-8 border border-white/[0.08] hover:border-white/20 transition-all hover:-translate-y-1 hover:bg-white/[0.05] shadow-2xl group relative overflow-hidden flex flex-col justify-between"
+              className="bg-white/[0.02] backdrop-blur-xl rounded-2xl p-6 sm:p-8 border border-white/[0.08] hover:border-white/20 transition-all hover:-translate-y-1 hover:bg-white/[0.05] shadow-2xl group relative overflow-hidden flex flex-col justify-between"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -126,33 +123,18 @@ export default function Programs() {
                 </p>
               </div>
 
-              <button 
-                onClick={() => openProgram(program.category)} 
+              <Link 
+                href={courseRoutes[program.category]} 
                 className="text-blue-400 hover:text-cyan-300 text-xs font-black tracking-wider uppercase flex items-center gap-1.5 cursor-pointer mt-6 transition-colors duration-200"
               >
                 Explore Program
                 <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"/></svg>
-              </button>
+              </Link>
             </motion.div>
           ))}
         </div>
         
       </div>
-
-      <CruiseProgramModal 
-        isOpen={isProgramOpen} 
-        onClose={() => setIsProgramOpen(false)} 
-        onApplyClick={() => {
-          setIsProgramOpen(false);
-          setIsAdmissionOpen(true);
-        }}
-        categoryFilter={selectedCategory}
-      />
-
-      <AdmissionFormModal 
-        isOpen={isAdmissionOpen} 
-        onClose={() => setIsAdmissionOpen(false)} 
-      />
     </section>
   );
 }

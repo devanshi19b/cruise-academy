@@ -8,11 +8,11 @@ import TermsModal from './TermsModal';
 
 const footerLinks = {
   programs: [
-    { name: "Engineering", href: "/programs/engineering" },
-    { name: "Medical", href: "/programs/medical" },
-    { name: "Career Guidance", href: "/programs/career-guidance" },
-    { name: "Study Abroad", href: "/programs/study-abroad" },
-    { name: "Seafarer Training", href: "/programs/seafarer" }
+    { name: "Engineering", href: "/courses/course-2" },
+    { name: "Medical", href: "/courses/course-4" },
+    { name: "Career Guidance", href: "/courses/course-2" },
+    { name: "Study Abroad", href: "/courses/course-3" },
+    { name: "Seafarer Training", href: "/courses/course-1" }
   ],
   company: [
     { name: "About Us", href: "/about" },
