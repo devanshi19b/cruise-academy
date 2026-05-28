@@ -29,8 +29,139 @@ export default function Footer() {
   const [isTermsOpen, setIsTermsOpen] = useState(false);
 
   return (
-    <footer className="bg-[#081121] text-white py-16 border-t border-white/[0.05] relative z-10 w-full">
-      <div className="max-w-6xl mx-auto px-4 md:px-8">
+    <footer className="bg-[#081121] text-white py-16 border-t border-white/[0.05] relative z-10 w-full overflow-hidden">
+      {/* Animated Ocean & Cruise Background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        {/* Ambient Horizon Glow */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[80rem] h-[15rem] bg-[radial-gradient(ellipse_at_bottom,_rgba(6,182,212,0.06)_0%,_rgba(2,132,199,0.02)_50%,_transparent_75%)] rounded-b-full pointer-events-none transform-gpu" />
+
+        {/* Distant Stars / Floating Particles */}
+        <div className="absolute inset-0 opacity-40">
+          <div className="star star-1"></div>
+          <div className="star star-2"></div>
+          <div className="star star-3"></div>
+          <div className="star star-4"></div>
+        </div>
+
+        {/* Distant Cruise Ship Silhouette */}
+        <div className="absolute bottom-[60px] left-[15%] sm:left-[25%] md:left-[35%] w-[240px] sm:w-[320px] md:w-[380px] h-auto z-10 opacity-75 animate-ship-float pointer-events-none transform-gpu">
+          <svg viewBox="0 0 300 85" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
+            {/* Ship Hull */}
+            <path d="M15 55 L245 55 L262 38 L285 38 L270 60 L250 68 L25 68 Z" fill="#040b18" />
+            {/* Superstructure / Decks */}
+            <path d="M35 55 L35 40 L75 40 L75 35 L125 35 L125 30 L210 30 L215 40 L240 40 L245 55 Z" fill="#0c162b" />
+            <path d="M45 40 L45 32 L115 32 L115 40 Z" fill="#132342" />
+            <path d="M125 30 L125 24 L190 24 L190 30 Z" fill="#132342" />
+            {/* Funnel/exhaust */}
+            <path d="M165 24 L170 14 L180 14 L177 24 Z" fill="#1e293b" />
+            <path d="M170 14 L172 10 L178 10 L176 14 Z" fill="#ef4444" />
+            {/* Glass Bridge Front */}
+            <path d="M220 40 L235 40 L230 46 L220 46 Z" fill="#22d3ee" opacity="0.6" />
+            {/* Warm Cabin Lights */}
+            <circle cx="55" cy="48" r="1.5" fill="#fef08a" className="animate-window-blink" />
+            <circle cx="70" cy="48" r="1.5" fill="#fef08a" />
+            <circle cx="85" cy="48" r="1.5" fill="#fef08a" className="animate-window-blink" style={{ animationDelay: '1s' }} />
+            <circle cx="100" cy="48" r="1.5" fill="#fef08a" />
+            <circle cx="115" cy="48" r="1.5" fill="#fef08a" className="animate-window-blink" style={{ animationDelay: '0.5s' }} />
+            <circle cx="135" cy="43" r="1.2" fill="#22d3ee" />
+            <circle cx="150" cy="43" r="1.2" fill="#22d3ee" />
+            <circle cx="165" cy="43" r="1.2" fill="#22d3ee" />
+            <circle cx="180" cy="43" r="1.2" fill="#22d3ee" />
+            {/* Masts */}
+            <line x1="205" y1="24" x2="205" y2="12" stroke="#040b18" strokeWidth="1.5" />
+            <line x1="200" y1="15" x2="210" y2="15" stroke="#040b18" strokeWidth="1" />
+          </svg>
+        </div>
+
+        {/* Wave Layers */}
+        <div className="absolute bottom-0 left-0 w-full h-[100px] pointer-events-none">
+          {/* Background Wave - Moves Slowest */}
+          <div className="absolute bottom-[-2px] left-0 w-[200%] h-full opacity-35 animate-wave-slowest z-0 transform-gpu">
+            <svg className="w-full h-full" viewBox="0 0 1200 60" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 25 Q 150 15, 300 25 T 600 25 T 900 25 T 1200 25 L 1200 60 L 0 60 Z" fill="#0c1d3a" />
+            </svg>
+          </div>
+
+          {/* Middle Wave - Moves Medium Speed */}
+          <div className="absolute bottom-[-1px] left-0 w-[200%] h-full opacity-60 animate-wave-medium z-10 transform-gpu">
+            <svg className="w-full h-full" viewBox="0 0 1200 60" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 30 Q 150 10, 300 30 T 600 30 T 900 30 T 1200 30 L 1200 60 L 0 60 Z" fill="#09182d" />
+            </svg>
+          </div>
+
+          {/* Foreground Wave - Moves Fastest & brightest */}
+          <div className="absolute bottom-0 left-0 w-[200%] h-full opacity-90 animate-wave-fastest z-20 transform-gpu">
+            <svg className="w-full h-full" viewBox="0 0 1200 60" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 35 Q 150 15, 300 35 T 600 35 T 900 35 T 1200 35 L 1200 60 L 0 60 Z" fill="url(#ocean-gradient)" />
+              <defs>
+                <linearGradient id="ocean-gradient" x1="0" y1="0" x2="0" y2="60" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stopColor="#081121" stopOpacity="0.8" />
+                  <stop offset="50%" stopColor="#040b18" />
+                  <stop offset="100%" stopColor="#020710" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+        </div>
+
+        {/* Self-contained CSS Animations */}
+        <style>{`
+          @keyframes wave-move-slowest {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          @keyframes wave-move-medium {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          @keyframes wave-move-fastest {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          @keyframes ship-sway {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            33% { transform: translateY(2px) rotate(0.5deg); }
+            66% { transform: translateY(-1px) rotate(-0.5deg); }
+          }
+          @keyframes star-glow {
+            0%, 100% { opacity: 0.2; transform: translateY(0) scale(1); }
+            50% { opacity: 0.8; transform: translateY(-5px) scale(1.2); }
+          }
+          @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+          }
+
+          .animate-wave-slowest {
+            animation: wave-move-slowest 35s linear infinite;
+          }
+          .animate-wave-medium {
+            animation: wave-move-medium 25s linear infinite;
+          }
+          .animate-wave-fastest {
+            animation: wave-move-fastest 18s linear infinite;
+          }
+          .animate-ship-float {
+            animation: ship-sway 12s ease-in-out infinite;
+          }
+          .animate-window-blink {
+            animation: blink 4s infinite ease-in-out;
+          }
+
+          .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.3;
+          }
+          .star-1 { width: 2px; height: 2px; top: 20%; left: 10%; animation: star-glow 6s infinite ease-in-out; }
+          .star-2 { width: 1.5px; height: 1.5px; top: 40%; left: 45%; animation: star-glow 8s infinite ease-in-out 1.5s; }
+          .star-3 { width: 2.5px; height: 2.5px; top: 15%; left: 75%; animation: star-glow 7s infinite ease-in-out 3s; }
+          .star-4 { width: 2px; height: 2px; top: 30%; left: 90%; animation: star-glow 9s infinite ease-in-out 4.5s; }
+        `}</style>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 md:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-4">
 
           {/* Brand & Mission (Takes up 4 columns on desktop) */}
