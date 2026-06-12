@@ -1,6 +1,8 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
+import { useState, useEffect } from 'react';
 
 const timelineData = [
   {
@@ -34,6 +36,20 @@ const timelineData = [
 ];
 
 export default function About() {
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+
+  // Prevent scrolling on document body when lightbox is open
+  useEffect(() => {
+    if (isLightboxOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isLightboxOpen]);
+
   return (
     <section id="about" className="py-24 relative overflow-hidden bg-[#0a0f1c]">
       <div className="max-w-6xl mx-auto px-4 relative z-10">
@@ -126,7 +142,92 @@ export default function About() {
             })}
           </div>
         </div>
+
+        {/* Placement Program Callout */}
+        <motion.div
+          className="mt-24 max-w-5xl mx-auto bg-[#121c2d] border border-white/10 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-10 shadow-2xl relative overflow-hidden backdrop-blur-md"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          {/* Ambient Glow */}
+          <div className="absolute -top-24 -left-24 w-48 h-48 bg-yellow-500/10 rounded-full blur-3xl pointer-events-none"></div>
+          <div className="absolute -bottom-24 -right-24 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+          <div className="flex-1 text-center md:text-left relative z-10">
+            <span className="text-xs font-bold uppercase tracking-wider text-yellow-500 bg-yellow-500/10 px-3 py-1 rounded-full inline-block mb-4">
+              Placement Opportunities
+            </span>
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+              Your Journey to Global Success
+            </h3>
+            <p className="text-slate-300 leading-relaxed text-sm md:text-base">
+              Learn locally, intern globally, and succeed internationally. Shrivastava Group of Institutes offers international internship and placement programs in major countries across the globe, preparing you for successful careers in hotel, hospitality, cruise lines, and resort operations.
+            </p>
+          </div>
+
+          <div 
+            onClick={() => setIsLightboxOpen(true)}
+            className="w-full md:w-[350px] aspect-[3/4] relative cursor-pointer rounded-2xl overflow-hidden shadow-2xl border border-white/10 group flex-shrink-0 z-10"
+          >
+            <Image
+              src="/images/global-success-poster.jpg"
+              alt="Global Placement and Internship Opportunities Poster"
+              fill
+              sizes="(max-width: 768px) 100vw, 350px"
+              className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+            />
+          </div>
+        </motion.div>
+
       </div>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {isLightboxOpen && (
+          <div className="fixed inset-0 z-[150] flex items-center justify-center p-4 md:p-8" data-lenis-prevent="true">
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsLightboxOpen(false)}
+              className="fixed inset-0 bg-black/95 backdrop-blur-md cursor-pointer"
+            />
+            {/* Content Container */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              className="relative max-w-3xl max-h-[85vh] aspect-[3/4] w-full z-[160] flex flex-col items-center justify-center"
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setIsLightboxOpen(false)}
+                className="absolute top-[-50px] right-0 p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-full transition-all duration-200 cursor-pointer"
+                aria-label="Close lightbox"
+              >
+                <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+              
+              {/* Poster Image */}
+              <div className="relative w-full h-full rounded-2xl overflow-hidden border border-white/10 bg-black shadow-2xl">
+                <Image
+                  src="/images/global-success-poster.jpg"
+                  alt="Global Success - Placement and Internship Opportunities Poster"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 1024px"
+                  priority
+                  className="object-contain"
+                />
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
