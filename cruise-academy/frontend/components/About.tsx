@@ -172,7 +172,7 @@ export default function About() {
             className="w-full md:w-[350px] aspect-[3/4] relative cursor-pointer rounded-2xl overflow-hidden shadow-2xl border border-white/10 group flex-shrink-0 z-10"
           >
             <Image
-              src="/images/global-success-poster.jpg"
+              src="/images/global-success-poster.png"
               alt="Global Placement and Internship Opportunities Poster"
               fill
               sizes="(max-width: 768px) 100vw, 350px"
@@ -216,7 +216,7 @@ export default function About() {
               {/* Poster Image */}
               <div className="relative w-full h-full rounded-2xl overflow-hidden border border-white/10 bg-black shadow-2xl">
                 <Image
-                  src="/images/global-success-poster.jpg"
+                  src="/images/global-success-poster.png"
                   alt="Global Success - Placement and Internship Opportunities Poster"
                   fill
                   sizes="(max-width: 1024px) 100vw, 1024px"
